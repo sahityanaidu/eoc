@@ -1,0 +1,40 @@
+%8 by 1 mux 
+function[out]=mux_8(S2,S1,S0,D0,D1,D2,D3,D4,D5,D6,D7)
+if S2<= 1 &&S1<=1 && S0<=1 && D0<=1 && D1<= 1&& D2<=1&& D3<=1 &&D4<=1&& D5<=1&& D6<=1&& D7<=1
+    a=not_gate(S2);
+b=not_gate(S1);
+c=not_gate(S0);
+d=and_gate(a,b);
+e=and_gate(d,c);
+f=and_gate(e,D0);
+g=and_gate(a,b);
+h=and_gate(g,S0);
+i=and_gate(h,D1);
+j=and_gate(a,S1);
+k=and_gate(j,c);
+l=and_gate(k,D2);
+m=and_gate(a,S1);
+n=and_gate(m,S0);
+o=and_gate(n,D3);
+p=and_gate(S2,b);
+q=and_gate(p,c);
+r=and_gate(q,D4);
+s=and_gate(S2,b);
+t=and_gate(s,S0);
+u=and_gate(t,D5);
+v=and_gate(S2,S1);
+w=and_gate(v,c);
+x=and_gate(w,D6);
+y=and_gate(v,S0);
+z=and_gate(y,D7);
+aa=or_gate(f,i);
+bb=or_gate(l,o);
+cc=or_gate(r,u);
+dd=or_gate(x,z);
+O1=or_gate(aa,bb);
+O2=or_gate(cc,dd);
+out=or_gate(O1,O2)
+else 
+    disp("entered values are invalid! enter 0 or 1");
+end
+end
